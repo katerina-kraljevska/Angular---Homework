@@ -1,0 +1,61 @@
+<h1>Task Manager</h1>
+
+<div class="'input-continer">
+  <label for="newTask">New task</label>
+  <input
+    [(ngModel)]="newTask"
+    placeholder="Enter task title"
+    class="newTask"
+    required=""
+  />
+  <!-- the title of the task is required -->
+  <br />
+  <label for="description">Add description</label>
+  <input
+    [(ngModel)]="description"
+    placeholder="Enter task description"
+    class="description"
+  />
+  <br />
+  <button (click)="addTask()">Add Task</button>
+  <!-- add new task -->
+</div>
+
+<ol>
+  @for (task of tasks(); track task.id; let i=$index) {
+  <li>
+    <div class="task-content">
+      <span
+        class="task-title"
+        [style.background-color]="task.completed ? 'lightgreen' : 'lightcoral'"
+      >
+        {{ task.title }}
+        <br />
+        @if (task.description) {
+        <span class="task-description"
+          >Description: {{ task.description }}</span
+        >
+        }
+      </span>
+    </div>
+
+    <button (click)="markTask(i)">
+      {{ task.completed ? "Undo" : "Complete" }}
+    </button>
+  </li>
+  }
+</ol>
+
+<!-- if there are tasks in the array -->
+@if(tasks().length>0){
+<div class="statistics">
+  <h4>Completed: {{ countComplitedTasks() }}</h4>
+  <h4>Pending: {{ countIncomplitedTasks() }}</h4>
+</div>
+} @else {
+<p class="statistics">No tasks. Add new task</p>
+}
+
+<div>
+  <button (click)="clearTasks()">Clear All</button>
+</div>

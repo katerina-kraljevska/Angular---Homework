@@ -1,0 +1,55 @@
+<div class="todo-form">
+  <div class="form-header">
+    <h1>Edit todo</h1>
+  </div>
+
+  <!-- REACTIVE FORM -->
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+
+      <input
+        type="text"
+        id="title"
+        placeholder="Enter title"
+        formControlName="title"
+        class="form-control"
+      />
+      @if(getFieldError("title")){
+      <div class="error-message">{{ getFieldError('title') }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+
+      <textarea
+        type="text"
+        id="description"
+        placeholder="Describe the todo"
+        rows="3"
+        formControlName="description"
+        class="form-control"
+      ></textarea>
+      @if(getFieldError("description")){
+      <div class="error-message">{{ getFieldError('description') }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+
+      <select name="status" id="status" formControlName="status" class="custom-select">
+        @for(s of status; track s){
+        <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button type="button" (click)="navigateHome()">Cancel</button>
+      <button [disabled]="todoForm.invalid" type="submit">Edit todo</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="container">
+    <div routerLink="/" class="logo">
+      <span class="title">Todo List</span>
+    </div>
+  </div>
+
+  <nav class="navigation">
+    <ul>
+      <li
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/"
+      >
+        Home
+      </li>
+
+      <li class="nav-link" routerLinkActive="active" routerLink="/add-todo">Add new todo</li>
+    </ul>
+  </nav>
+</header>

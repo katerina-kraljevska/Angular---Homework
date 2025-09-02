@@ -1,0 +1,37 @@
+<div class="recipe-list">
+  <div class="header">
+    <h1>Todo List🎯</h1>
+    <p>Total todos: {{ allTodos().length }}</p>
+
+    <button routerLink="/add-todo" class="btn btn-primary" class="btn-primary btn">
+      Add new todo
+    </button>
+  </div>
+
+  @if(allTodos().length === 0){
+  <div class="empty">
+    <h3>No todos. Create a new todo!</h3>
+  </div>
+  }@else {
+  <div class="todo-grid">
+    @for(todo of allTodos(); track todo.id){
+    <div class="todo-card" [attr.data-status]="todo.status">
+      <div class="todo-content">
+        <div class="left">
+          <div class="todo-title">{{ todo.title }}</div>
+          <div class="todo-description">{{ todo.description }}</div>
+          <div class="todo-status">
+            {{ todo.status }}
+          </div>
+        </div>
+        <div class="todo-actions">
+          <button class="btn btn-primary" [routerLink]="['/edit-todo', todo.id]">Edit</button>
+
+          <button (click)="deleteTodo(todo.id)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>

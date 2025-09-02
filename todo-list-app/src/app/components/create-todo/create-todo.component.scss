@@ -1,0 +1,132 @@
+.todo-form {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 700px;
+
+  form {
+    background-color: #64babe90;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      button {
+        width: fit-content;
+        padding: 5px 15px;
+        border: 2px solid #f4f4f4;
+        border-radius: 5px;
+        cursor: pointer;
+
+        //text
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: #e6ffe6;
+        font-weight: bolder;
+        font-size: medium;
+
+        //color
+        background-color: #008ea0;
+      }
+      button:hover {
+        background-color: #085979;
+      }
+    }
+  }
+}
+
+.form-header {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  max-height: fit-content;
+  background-color: #008ea0;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: medium;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #085979;
+  }
+}
+
+.error-message {
+  color: #d4343f;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  padding: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.form-array-container {
+  margin-bottom: 10px;
+}
+
+// invalid
+input.ng-invalid.ng-touched {
+  border: 3px solid red;
+  background-color: #e6ffe6;
+}
+
+input.ng-valid.ng-touched {
+  border: 3px solid green;
+  background-color: #e6ffe6;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: 3px solid red;
+  background-color: #e6ffe6;
+}
+
+textarea.ng-valid.ng-touched {
+  border: 3px solid green;
+  background-color: #e6ffe6;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border: 1px solid #ebecea;
+  border-radius: 8px;
+  background-color: #ebecea;
+  color: #d4343f;
+  font-weight: bold;
+}
+
+label {
+  font-size: large;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  border-radius: 8px;
+  max-width: 630px;
+}
